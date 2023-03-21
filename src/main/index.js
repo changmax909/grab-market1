@@ -1,42 +1,43 @@
 import React from "react";
-import './index.css';
+import "./index.css";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
-function MainPage(){
+function MainPage() {
     const [products, setProducts] = React.useState([]);
-    React.useEffect(function(){
-            axios
-                .get("https://27d9a9e7-cfb0-4439-99a1-0bc6797a3930.mock.pstmn.io/products")
-                .then(function(result){
-                    const products = result.data.products;
-                    setProducts(products);
-                }).catch(function(error){
-                console.error('에러 발생 :' , error);
+    React.useEffect(function () {
+        axios
+            .get(
+                "https://0ee4fc7a-3e22-4d75-aaa5-c0e6f3208ece.mock.pstmn.io/products"
+            )
+            .then(function (result) {
+                const products = result.data.products;
+                setProducts(products);
+            })
+            .catch(function (error) {
+                console.error("에러 발생 : ", error);
             });
-        },[]);
+    }, []);
 
     return (
         <div>
             <div id="header">
                 <div id="header-area">
-                    <img src="./images/icons/logo.png" />
+                    <img src="images/icons/logo.png" />
                 </div>
             </div>
             <div id="body">
                 <div id="banner">
-                    <img src="./images/banners/banner1.png" />
+                    <img src="images/banners/banner1.png" />
                 </div>
                 <h1>판매되는 상품들</h1>
                 <div id="product-list">
-                    {
-                        products.map(function(product,index){
-                            return (
-                                <div className="product-card">
+                    {products.map(function (product, index) {
+                        return (
+                            <div className="product-card">
+                                <Link className="product-link" to={`/products/${index}`}>
                                     <div>
-                                        <img
-                                            className="product-img"
-                                            src={product.imageUrl}
-                                        />
+                                        <img className="product-img" src={product.imageUrl} />
                                     </div>
                                     <div className="product-contents">
                                         <span className="product-name">{product.name}</span>
@@ -44,19 +45,19 @@ function MainPage(){
                                         <div className="product-seller">
                                             <img
                                                 className="product-avatar"
-                                                src="./images/icons/avatar.png"
+                                                src="images/icons/avatar.png"
                                             />
                                             <span>{product.seller}</span>
                                         </div>
                                     </div>
-                                </div>
-                            );
-                        })
-                    };
+                                </Link>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <div id="footer"></div>
         </div>
     );
-};
+}
 export default MainPage;
