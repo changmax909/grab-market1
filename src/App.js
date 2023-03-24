@@ -7,11 +7,11 @@ import React, {useState, useEffect} from "react";
 import {Button} from "antd";
 import {DownloadOutlined} from "@ant-design/icons";
 
-import MainPage1 from "./main/index1";
-import UploadPage1 from "./upload/index1";
-import ProductPage1 from "./product/index1";
-import ChildComponent from "./child";
-import TimerComponent from "./timer";
+// import MainPage1 from "./main/index1";
+// import UploadPage1 from "./upload/index1";
+// import ProductPage1 from "./product/index1";
+// import ChildComponent from "./child";
+// import TimerComponent from "./timer";
 
 import axios from 'axios'
 
@@ -94,13 +94,13 @@ function App() {
             <div id="body">
                 <Switch>
                     <Route exact={true} path="/">
-                        <MainPage1/>
+                        <MainPageComponent/>
                     </Route>
                     <Route exact={true} path="/products/:id">
-                        <ProductPage1/>
+                        <ProductPage/>
                     </Route>
                     <Route exact={true} path="/upload">
-                        <UploadPage1/>
+                        <UploadPage/>
                     </Route>
                 </Switch>
             </div>

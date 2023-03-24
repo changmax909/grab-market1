@@ -61,7 +61,8 @@ function MainPage1() {
     React.useEffect(function () {
         //네트워크 통신
         axios
-            .get("https://1a135b44-e524-4168-8a97-42364bfed983.mock.pstmn.io/products")
+            // .get("https://1a135b44-e524-4168-8a97-42364bfed983.mock.pstmn.io/products")
+            .get("http://localhost:8081/products")
             .then(function (result) {
                 const products = result.data.products;
                 setProducts(products);

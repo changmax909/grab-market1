@@ -54,6 +54,7 @@ function ProductPage() {
         axios
             .get(
                 `https://1a135b44-e524-4168-8a97-42364bfed983.mock.pstmn.io/products/${id}`
+                // `https://341cf269-c712-4751-a587-2c7fd1b972ec.mock.pstmn.io/products/${id}`
             )
             .then(function (result) {
                 setProduct(result.data);
